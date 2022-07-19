@@ -18,16 +18,23 @@ let gameLogic = () => {
     if (userChoice === cpuChoice) {
         alert("it's a draw!")
         draws++
-    } else if ((userChoice === randomOption[0] && cpuChoice === randomOption[1]) ||
-        (userChoice === randomOption[1] && cpuChoice === randomOption[2]) || (userChoice === randomOption[2] && cpuCHoice === randomOption[0]))
-    {
+    } else if (
+        (userChoice === randomOption[0] && cpuChoice === randomOption[1]) ||
+        (userChoice === randomOption[1] && cpuChoice === randomOption[2]) || (userChoice === randomOption[2] && cpuCHoice === randomOption[0])
+    ) {
         alert("CPU wins!")
         loses++
     } else {
         alert("You win!")
         wins++
     }
+    alert(`wins: ${wins} \n loses: ${loses}`)
 
+    let playAgain = confirm('play again?')
+
+    if (playAgain) {
+        gameLogic();
+    }
 };
 
 gameLogic();
